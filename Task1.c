@@ -25,20 +25,20 @@ int main()
     printf("%s\n", str); 
     printf("%ld\n", (strlen(str)-1));
     int strl=strlen(str), j =0;
-    char ans[10]="";
+    char ans[MAX_LIMIT]="";
     //printf("The answer%s\n", ans);
     for(int i=0; i<strl; i++)
     {  char sub[10]="";
-        // printf("The value of j1=%d\n", j);
+        printf("The value of j=%d\n", j);
         if('a'== str[i] || 'A' == str[i])
         { 
             position=0,length=1;
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside a %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of ja=%d\n", j);             
         }
         else if('b'== str[i] || 'B' == str[i])
         {
@@ -47,9 +47,9 @@ int main()
             strcat(&ans[j],sub);
             printf("\n Inside b %c \n",str[i]);
             
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jb=%d\n", j);             
         }
         else if('c'== str[i] || 'C' == str[i])
         {
@@ -58,9 +58,9 @@ int main()
             strcat(&ans[j],sub);
             printf("\n Inside c %c \n",str[i]);
             
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jc=%d\n", j);             
         }
         else if('d'== str[i] || 'D' == str[i])
         {
@@ -68,9 +68,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside d %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jd=%d\n", j);             
         }
         else if('e'== str[i] || 'E' == str[i])
         {
@@ -78,9 +78,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside e %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of je=%d\n", j);             
         }
         else if('f'== str[i] || 'F' == str[i])
         {
@@ -88,9 +88,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside f %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jf=%d\n", j);             
         }
         else if('g'== str[i] || 'G' == str[i])
         {
@@ -98,9 +98,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside g %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jg=%d\n", j);             
         }
         else if('H'== str[i] || 'h' == str[i])
         {
@@ -108,9 +108,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside h %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of js=%d\n", j);             
         }
         else if('i'== str[i] || 'I' == str[i])
         {
@@ -118,9 +118,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside i %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of ji=%d\n", j);             
         }
         else if('j'== str[i] || 'J' == str[i])
         {
@@ -128,9 +128,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside j %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jj=%d\n", j);             
         }
         else if('k'== str[i] || 'K' == str[i])
         {
@@ -138,9 +138,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside k %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jk=%d\n", j);             
         }
         else if('l'== str[i] || 'L' == str[i])
         {
@@ -148,9 +148,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside L %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jl=%d\n", j);             
         }
         else if('m'== str[i] || 'M' == str[i])
         {
@@ -158,10 +158,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside M %c \n",str[i]);
-            
-        //    printf("%s",ans);
+             printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jm=%d\n", j);             
         }
         else if('n'== str[i] || 'N' == str[i])
         {
@@ -169,9 +168,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside n %c \n",str[i]);
-        //    printf("%s",ans);
+             printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jn=%d\n", j);             
         }
         else if('o'== str[i] || 'O' == str[i])
         {
@@ -180,9 +179,9 @@ int main()
             strcat(&ans[j],sub);
             printf("\n Inside o %c \n",str[i]);
             
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jo=%d\n", j);             
         }
         else if('p'== str[i] || 'P' == str[i])
         {
@@ -191,9 +190,9 @@ int main()
             strcat(&ans[j],sub);
             printf("\n Inside p %c \n",str[i]);
             
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jp=%d\n", j);             
         }
         else if('Q'== str[i] || 'q' == str[i])
         {
@@ -201,9 +200,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside q %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jq=%d\n", j);             
         }
         else if('r'== str[i] || 'R' == str[i])
         {
@@ -211,9 +210,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside R %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jr=%d\n", j);             
         }
         else if('s'== str[i] || 'S' == str[i])
         {
@@ -221,9 +220,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside S %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of js=%d\n", j);             
         }
         else if('t'== str[i] || 'T' == str[i])
         {
@@ -231,9 +230,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside T %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jt=%d\n", j);             
         }
         else if('u'== str[i] || 'U' == str[i])
         {
@@ -241,9 +240,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside u %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of ju=%d\n", j);             
         }
         else if('v'== str[i] || 'V' == str[i])
         {
@@ -251,9 +250,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside v %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jv=%d\n", j);             
         }
         else if('w'== str[i] || 'W' == str[i])
         {
@@ -261,9 +260,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside w %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jw=%d\n", j);             
         }
         else if('x'== str[i] || 'X' == str[i])
         {
@@ -271,9 +270,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside x %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jx=%d\n", j);             
         }
         else if('y'== str[i] || 'Y' == str[i])
         {
@@ -281,9 +280,9 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside y %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jy=%d\n", j);             
         }
         else if('z'== str[i] || 'Z' == str[i])
         {
@@ -291,21 +290,22 @@ int main()
             alphabets(position,length,sub);
             strcat(&ans[j],sub);
             printf("\n Inside z %c \n",str[i]);
-        //    printf("%s",ans);
+            printf("%s",ans);
             j=j+length;
-        //    printf("\nThe value of j2=%d\n", j);             
+            printf("\nThe value of jz=%d\n", j);             
         }
         else if(' '== str[i])
         {
             printf("\n Inside empty %c \n",str[i]);
               ans[j]=' ';
               j++;
-        //      printf("The value of j3=%d\n", j);
+              printf("The value of jEmpty=%d\n", j);
         }
         else
         {
             ans[j]=str[i];
             j++;
+            printf("The value of jDefault=%d\n", j);
          printf("Inside the default %c \n",str[i]);
         }
          //   printf("%c \n",str[i]);
@@ -313,10 +313,10 @@ int main()
 
     /* alphabets(0,10,sub);
     strcat(str,sub); */
-    for(int i=0; i<strl; i++)
+    /* for(int i=0; i<strl; i++)
     { 
-        printf("%c",ans[i]);
-    }   
- //   printf("%s",ans);
+        printf("index=%d Alphabet=%c \n",i,ans[i]);
+    } */   
+    printf("%s",ans);
     return 0; 
 } 
