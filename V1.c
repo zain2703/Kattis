@@ -10,7 +10,7 @@ void alphabets(int position, int length)
    printf("%s \n",alpha);
    while (c < length) {
       sub[c] = alpha[position+c-1];
-      printf("%c",sub[c]);
+      printf("inside the Alpha=%c and the value of c=%d\n",sub[c],c);
       c++;
    }
    //printf("%s \n",sub);
@@ -20,21 +20,26 @@ void concatenate(char p[], char q[]) {
    int c, d;
    c = 0;
    while (p[c] != '\0') {
-      c++;      
+      c++; 
+      printf("Values of p in first loop %c\n",p[c]);     
    }
    d = 0;
-   while (q[d] != '\0') {
-      p[c] = q[d];
+   while (sub[d] != '\0') {
+      p[c] = sub[d];
+      printf("Values in P %c\n",p[c]);
+      printf("Values in q %c\n",sub[d]);
       d++;
       c++;    
    }
    p[c] = '\0';
+   for(int i=0; i<10; i++)
+    { 
+        printf("Inside cancat %c\n",sub[i]);
+    }
 }
-
-
 int main() 
 { 
-    char temp[10]="",temp1[10]="@@";
+    char temp[10]="",temp1[20]="@@";
     char str[MAX_LIMIT]="";
     //char temp[10]; 
     scanf("%[^\n]%*c", str); 
