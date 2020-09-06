@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX_LIMIT 1000 
+#define MAX_LIMIT 500 
 
 void alphabets(int position, int length, char sub[])
 {  int c=0;
 //   printf("%d,%d\n",position,length);
-   char alpha[MAX_LIMIT]="@8(|)3#6[-]|_||<1[]\\/[][]\\[]0|D(,)|Z$']['|_|\\/\\/\\/}{`/2";
+   char alpha[]="@8(|)3#6[-]|_||<1[]\\/[][]\\[]0|D(,)|Z$']['|_|\\/\\/\\/}{`/2";
  //  printf("%s \n",alpha);
    while (c < length) {
       sub[c] = alpha[position+c];
@@ -15,16 +15,10 @@ void alphabets(int position, int length, char sub[])
  //  printf("The substring=%s \n",sub);
 }
 
-int main() 
-{   
-    char str[MAX_LIMIT]=""; 
-    scanf("%[^\n]%*c", str);
-    int length, position; 
-    /* printf("%s\n", str); 
-    printf("%ld\n", (strlen(str)-1)); */
-    int strl=strlen(str), j =0;
-    char ans[MAX_LIMIT]="";
-    for(int i=0; i<strl; i++)
+void Comparison(char str[], char ans[])
+{
+  int length, position, strl=strlen(str), j =0;
+  for(int i=0; i<strl; i++)
     {  char sub[10]="";
        // printf("The value of j=%d\n", j);
         if('a'== str[i] || 'A' == str[i])
@@ -302,8 +296,7 @@ int main()
 /*             printf("\n Inside empty %c \n",str[i]);
             printf("The value of jEmpty=%d\n", j); */  
               ans[j]=' ';
-              j++;
-              
+              j++;     
         }
         else
         {
@@ -311,16 +304,25 @@ int main()
             printf("Inside the default %c \n",str[i]); */
             ans[j]=str[i];
             j++;
-        }
+        }        
          //   printf("%c \n",str[i]);
+     //    free(sub);
     }
+}
 
-    /* alphabets(0,10,sub);
-    strcat(str,sub); */
-    /* for(int i=0; i<strl; i++)
+int main() 
+{   
+    char str[MAX_LIMIT]=""; 
+    //scanf("%[^\n]%*c", str); 
+    fgets(str, MAX_LIMIT, stdin);
+    char ans[MAX_LIMIT]="";
+    Comparison(str,ans);
+    /* printf("%s\n", str); 
+    printf("%ld\n", (strlen(str)-1));
+     for(int i=0; i<strl; i++)
     { 
         printf("index=%d Alphabet=%c \n",i,ans[i]);
-    } */   
+    } */  
     printf("%s",ans);
     return 0; 
 } 
