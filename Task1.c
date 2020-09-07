@@ -1,18 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#define MAX_LIMIT 500 
+#include <math.h>
+//#define MAX_LIMIT 500 
 
 void alphabets(int position, int length, char sub[])
 {  int c=0;
-//   printf("%d,%d\n",position,length);
+//   printf("%d,%d\n",position,length); //Saving everyhting in a string
    char alpha[]="@8(|)3#6[-]|_||<1[]\\/[][]\\[]0|D(,)|Z$']['|_|\\/\\/\\/}{`/2";
  //  printf("%s \n",alpha);
-   while (c < length) {
-      sub[c] = alpha[position+c];
+   while (c < length) {    //Using position and length to find the substrng
+      sub[c] = alpha[position+c]; 
     //  printf("The substring=%c and the value of C=%d\n",sub[c],c);
       c++;
    }
- //  printf("The substring=%s \n",sub);
+    //printf("The substring=%s",sub);
 }
 
 void Comparison(char str[], char ans[])
@@ -312,10 +314,22 @@ void Comparison(char str[], char ans[])
 
 int main() 
 {   
-    char str[MAX_LIMIT]=""; 
-    //scanf("%[^\n]%*c", str); 
-    fgets(str, MAX_LIMIT, stdin);
-    char ans[MAX_LIMIT]="";
+    char* str; int n=100;
+    str =(char*)calloc(n, sizeof(char));
+    if(str==NULL)
+    {
+        printf("Memory not allocated.\n"); 
+        exit(0);
+    }
+    //str[MAX_LIMIT]=""; 
+    while(scanf("%[^\n]%*c", str)=='\n');
+    int strL=strlen(str)+10;
+   // printf("The memoy of string before alloc =%d \n", strL);
+    str = (char*)realloc(str,strL * sizeof(char));
+   // printf("The memoy of string =%ld \n", strlen(str));
+    //scanf("%[^\n]%*c", str);
+    //while(fgets(str, MAX_LIMIT, stdin)==2);
+    char* ans =(char*)calloc((strL*6), sizeof(char));
     Comparison(str,ans);
     /* printf("%s\n", str); 
     printf("%ld\n", (strlen(str)-1));
@@ -324,5 +338,7 @@ int main()
         printf("index=%d Alphabet=%c \n",i,ans[i]);
     } */  
     printf("%s",ans);
+    free(str);
+    free(ans);
     return 0; 
 } 
