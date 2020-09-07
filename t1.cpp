@@ -34,7 +34,7 @@ int main()
             {'Z', "2"}
     };
     char c;
-    while (scanf("%c", &c) > 0)
+    while (scanf("%c", &c)>0)
     {
         if ('a' <= c && c <= 'z') printf("%s", alpha_map[c - 32].c_str());
         else if ('A' <= c && c <= 'Z') printf("%s", alpha_map[c].c_str());
