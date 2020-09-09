@@ -1,10 +1,43 @@
 #include <bits/stdc++.h>
 
+// For debuging
 using namespace std;
+void printSet(set<int> s) 
+{ 
+    cout << "Set: "; 
+    for (int x : s) { 
+        cout << x << " "; 
+    } 
+    cout << endl; 
+}
+//for debugging
+void printVector(vector<int> vec) 
+{ 
+  
+    cout << "Vector: "; 
+    for (int x : vec) { 
+        cout << x << " "; 
+    } 
+    cout << endl; 
+}
+//for debugging
+void printVector(vector<vector<int>> vec) 
+{ 
+    cout << "2D Vector: "; 
+    for (int i = 0; i < vec.size(); i++) { // printing the 2D vector.
+      for (int j = 0; j < vec[i].size(); j++)
+       { cout << vec[i][j] << " ";}
+       cout<<endl;
+    }    
+}
+
+using namespace std;
+
+// Using Longest increasing sequence algorithm to find the largest group
 int lis(vector<int> arr, int n) 
 { 
-    int *lis, i, j, max = 0; 
-    lis = (int*)malloc(sizeof(int) * n); 
+    int i, j, max = 0; 
+    vector<int>lis(n); 
   
     /* Initialize LIS values for all indexes */
     for (i = 0; i < n; i++) 
@@ -20,54 +53,54 @@ int lis(vector<int> arr, int n)
     for (i = 0; i < n; i++) 
         if (max < lis[i]) 
             max = lis[i]; 
-  
-    /* Free memory to avoid memory leak */
-    free(lis); 
-  
+
     return max; 
 } 
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-     
-    //generating two vector arrays
-    vector<vector<int>> adj(n);
-    vector<int> deg(n,0);
-
-    for(int i = 0; i < m; i++) {
-        int n1, n2;
-        cin >> n1 >> n2;
-        n1--; n2--;
-        adj[n2].push_back(n1);
-        deg[n1]++;  
-    }
-
-    set<int> zeroin;
-    for(int i = 0; i < n; i++) {
-        if(deg[i] == 0) {
+void ToplogoicalSort(vector<vector<int>> matrix, vector<int> &arr, vector<int> &degree)
+{
+    //Checking empty places
+set<int> zeroin;
+    for(int i = 0; i < (matrix).size(); i++) {
+        if(degree[i] == 0) {
             zeroin.insert(i);
         }
-    } 
-    vector<int> arr;
-    while(!zeroin.empty()) {
+    }
+    //Implementing topolgical sort starting from thoe having zero connections
+while(!zeroin.empty()) {
         int curr = *zeroin.begin();
         zeroin.erase(zeroin.begin());
         arr.push_back(curr);
-        for(auto next : adj[curr]) {
-            deg[next]--;
-            if(deg[next] == 0) {                
+        for(auto next : matrix[curr]) {
+            degree[next]--;
+            if(degree[next] == 0) {                
                 zeroin.insert(next);
             }
         }
     }
+
+}
+
+int main() {
+    
+    int n, m,n1, n2;;
+    cin >> n >> m;
+    
+    vector<vector<int>> matrix(n);
+    vector<int> degree(n,0);
+    vector<int> arr;
+
+    //Taking Inputs in reverse order get directed graph
+    for(int i = 0; i < m; i++) {
+        cin >> n1 >> n2;
+        n1--; n2--;
+        matrix[n2].push_back(n1);
+        degree[n1]++;  
+    } 
+    ToplogoicalSort(matrix,arr,degree); 
+    //Lowest number having more connection using inverse to increase the prirty of LIS
     for(auto &i : arr) {
-        i = i*(-1);   //price *= units + 1;	price = price * (units+1);
+        i = i*(-1);  
     }
-    /* int arr[(permutation).size()];
-    for (int i=0;i<(permutation).size();i++)
-    {
-        arr[i]=permutation[i];
-    } */
     cout<<lis(arr,(arr).size()); 
 }
