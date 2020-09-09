@@ -23,7 +23,7 @@ void printVector(vector<int> vec)
 }
 
 // Returns an array with the indexes of the LIS
-template <class T>
+/* template <class T>
 vector<int> LIS(vector<T>& v) {
     vector<int> p(v.size(), -1);
     vector<int> t(v.size(), 0);
@@ -80,7 +80,7 @@ vector<int> LIS(vector<T>& v) {
     cout<<"v ";printVector(v);
     cout<<"ans ";printVector(ans);
     return ans;
-}
+} */
 
 int _lis( int arr[], int n, int *max_ref) 
 { 
@@ -143,7 +143,7 @@ int main() {
         deg[n1]++;  //a[i]++ increments the element at index i
      //   cout <<"deg["<<n1<<"]="<< deg[n1]<< endl;
     }
-    cout<<"The size of rows adj.size()="<<adj.size()<<endl;
+ /*    cout<<"The size of rows adj.size()="<<adj.size()<<endl;
      cout<<"The adjecent vector\n";
      for (int i = 0; i < adj.size(); i++) { 
         for (int j = 0; j < adj[i].size(); j++) 
@@ -151,54 +151,54 @@ int main() {
             cout <<"adj["<<i<<"]["<<j<<"]"<< adj[i][j] << endl; 
 //            cout<<"The size of adj[i].size()="<<adj[i].size()<<endl;
         }
-    } 
-    /* cout<<"The adjecent vector\n";
-    printVector(adj);  */
-    cout<<" The deg vector\n";
-    printVector(deg);
+    }  
+    cout<<"The adjecent vector\n";
+    printVector(adj);  
+    cout<<" The deg vector\n"; */
+    //printVector(deg);
     set<int> zeroin;
     for(int i = 0; i < n; i++) {
         if(deg[i] == 0) {
             zeroin.insert(i);
         }
     } 
-    printSet(zeroin);
+//    printSet(zeroin);
 
 // Use toposort to build the permutation graph
     vector<int> permutation;
     while(!zeroin.empty()) {
         //gving the first value of zeroin into curr
         int curr = *zeroin.begin();
-        cout<<"The curr="<<curr;
+//        cout<<"The curr="<<curr;
         zeroin.erase(zeroin.begin());
-        cout<<" After erase";
-        printSet(zeroin);
+/*         cout<<" After erase";
+        printSet(zeroin); */
         permutation.push_back(curr);
-        cout<<"After permutation push back";
-        printVector(permutation);
+/*         cout<<"After permutation push back";
+        printVector(permutation); */
         for(auto next : adj[curr]) {
           //  cout <<"Adj["<<curr<<"]="<< adj[curr] << endl;
-            cout <<"Before deg["<<next<<"]="<< deg[next] << endl;
+//            cout <<"Before deg["<<next<<"]="<< deg[next] << endl;
             deg[next]--;
-            cout <<"After deg decrement["<<next<<"]="<< deg[next] << endl;
+//            cout <<"After deg decrement["<<next<<"]="<< deg[next] << endl;
             if(deg[next] == 0) {                
                 zeroin.insert(next);
             }
         }
     }
     
-    cout<<"The permutation Before";
-    printVector(permutation);
+ /*    cout<<"The permutation Before";
+    printVector(permutation); */
     for(auto &i : permutation) {
         i = i*(-1);   //price *= units + 1;	price = price * (units+1);
     }
-    cout<<"The permutation After";
-    printVector(permutation);
+/*     cout<<"The permutation After";
+    printVector(permutation); */
     int arr[(permutation).size()];
     for (int i=0;i<(permutation).size();i++)
     {
         arr[i]=permutation[i];
-        cout<<arr[i];
+    //    cout<<arr[i];
     }
     cout<<lis( arr, n ); 
  //   cout << LIS(permutation).size() << endl;
