@@ -22,7 +22,7 @@ void printVector(vector<int> vec)
     cout << endl; 
 }
 
-int _lis( int arr[], int n, int *max_ref) 
+int _lis( vector<int>arr, int n, int *max_ref) 
 { 
 	/* Base case */
 	if (n == 1) 
@@ -53,7 +53,7 @@ int _lis( int arr[], int n, int *max_ref)
 } 
 
 // The wrapper function for _lis() 
-int lis(int arr[], int n) 
+int lis(vector<int> arr, int n) 
 { 
 	// The max variable holds the result 
 	int max = 1; 
@@ -87,11 +87,11 @@ int main() {
             zeroin.insert(i);
         }
     } 
-    vector<int> permutation;
+    vector<int> arr;
     while(!zeroin.empty()) {
         int curr = *zeroin.begin();
         zeroin.erase(zeroin.begin());
-        permutation.push_back(curr);
+        arr.push_back(curr);
         for(auto next : adj[curr]) {
             deg[next]--;
             if(deg[next] == 0) {                
@@ -99,13 +99,13 @@ int main() {
             }
         }
     }
-    for(auto &i : permutation) {
+    for(auto &i : arr) {
         i = i*(-1);   //price *= units + 1;	price = price * (units+1);
     }
-    int arr[(permutation).size()];
+    /* int arr[(permutation).size()];
     for (int i=0;i<(permutation).size();i++)
     {
         arr[i]=permutation[i];
-    }
-    cout<<lis( arr, n ); 
+    } */
+    cout<<lis(arr,(arr).size()); 
 }
