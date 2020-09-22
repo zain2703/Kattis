@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int n=5;
+//int n=5;
 int *arr[n], *d[n], store[n]; 
 bool is_clique(int b) 
 { 
