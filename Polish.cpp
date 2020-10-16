@@ -18,6 +18,18 @@ void printVector(vector<string> vec)
     } 
     cout << endl; 
 }
+
+bool filter(string word, string word1) {
+    bool Digit0 = false;
+    bool Digit1 = false;
+    for (int i = 0; i < word.size(); i++) {
+        if (isdigit(word.at(i))) { Digit0 = true; }
+    }
+    for (int i = 0; i < word1.size(); i++) {
+        if (isdigit(word1.at(i))) { Digit1 = true; }
+    }
+    return ( Digit0 && Digit1);
+} 
 //evluate
 
 int evaluate(vector<string> &operators, vector<string> &operands)
@@ -55,7 +67,9 @@ int main() {
     vector<string> operators;
 /*     string operands;
     string operators; */
+    string pr="0"; 
     string sub;
+    bool flag=false;
     int j,k,e;
     j=k=0;
     getline(cin,ch);
@@ -68,20 +82,19 @@ int main() {
     }
     cout<<"Input ";
     printVector(input);
-   // reverse(input.begin(), input.end());
-
-    /* int size=input.size()-1;
-    for (int i=size;i>0;i--)
+    for (auto ir=input.rbegin(); ir !=input.rend(); ir++)
     {  
-        //cout<<sub<<endl;
-      if((input[])=="+" || (sub)=="-" || (sub)=="*")
+      if((*ir)=="+" || (*ir)=="-" || (*ir)=="*")
        {
-         operators.push_back(sub);
+         operators.push_back(*ir);
        }
        else
-       {
-        operands.push_back(sub);
+       { 
+         operands.push_back(*ir);
+         flag=filter(*ir,pr);
+         cout<<"the flag"<<flag<<endl;
        }
+       pr=operands.back();
        cout<<"value of operands";
         printVector(operands);
         cout<<"value of operators";
@@ -89,7 +102,8 @@ int main() {
        if(operators.size()>0 && operands.size()>1)
        {
            e=evaluate(operators,operands); 
+           operands.push_back(operators.front());
+           operators.pop_back();
        }
-       iss >> sub;
-    } */
+    } 
 }    
