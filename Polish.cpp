@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include<sstream>
+#include<string>
 
 // For debuging
 using namespace std;
@@ -12,22 +14,47 @@ void printVector(vector<string> vec)
     cout << endl; 
 }
 int main() { 
-    string name;
+    string input;
+    string operands;
+    string operators;
+    string sub;
+    int j, k;
+    j=k=0;
     // cin>>name;
-    getline(cin,name);
-    cout<<name;
-    vector<string> input;
+    getline(cin,input);
+    cout<<input<<endl;
+    reverse(input.begin(), input.end());
+    cout<<input<<endl;
+    istringstream iss(input);
+    do
+    {  iss >> sub;
+      if((sub)=="+" || (sub)=="-" || (sub)=="*")
+       {
+         operators= operators + sub;
+         cout<<"value of operators"<<" "<<operators<<endl;
+         j++;
+       }
+       else
+       {
+        operands=operands +sub;
+        cout<<"value of operands"<<" "<<operands<<endl;
+       }
+    }while(iss);
+/*     vector<string> input;
     vector<string> operand;
     vector<string> operators;
-    input.push_back(name);
+    for(int i=0;i=name.size();i++)
+    {
+      input.push_back(name[i]);
+    }
     /* for (int i = 0; i < 10; i++) 
     {  input.push_back("i");
        input.push_back("+");
        input.push_back("-");
     } 
        */
-    for (auto i = input.rbegin(); i != input.rend(); i++)
-    { 
+/*     for (auto i = input.rbegin(); i != input.rend(); i++)
+    {      cout<<*i<<endl;
            if((*i)=="+" || (*i)=="-" || (*i)=="*")
            {
               operators.push_back(*i);
@@ -39,5 +66,5 @@ int main() {
      cout<<"Print the operand= "; 
      printVector(operand);
      cout<<"Print the operators= "; 
-     printVector(operators);
+     printVector(operators);  */
 }    
