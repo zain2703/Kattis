@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include<sstream>
 #include<string>
+#include<ctype.h>
 
 // For debuging
 using namespace std;
@@ -13,12 +14,41 @@ void printVector(vector<string> vec)
     } 
     cout << endl; 
 }
+//evluate
+
+int evaluate(string &operators, string &operands)
+{   char result=0;
+  cout<<endl;
+  cout<<operands<<operands.length()<<endl;
+  cout<<"value of number 1 in evaluation () ="<<operands[(operands.length()-2)]<<endl;
+  cout<<"value of number 2 in evaluation ()="<<operands[(operands.length()-4)]<<endl;
+  if(isdigit(operands[(operands.length()-2)]) && isdigit(operands[(operands.length()-4)]))
+  {
+    cout<<"value of number 1="<<operands[(operands.length()-2)]<<endl;
+    cout<<"value of number 2="<<operands[(operands.length()-4)]<<endl;
+    switch(operators[0])
+    {
+      case '*':
+          result=operands[(operands.length()-2)] + operands[(operands.length()-4)];
+          break;
+    }
+    //operators.erase('*');
+    cout<<"print the operands after erase="<<operators;
+  }
+  operands=operands + operators;
+  cout<<"value of results="<<result<<endl;
+
+return(0);
+}
+
 int main() { 
     string input;
-    string operands;
-    string operators;
+    vector<string> operands;
+    vector<string> operators;
+/*     string operands;
+    string operators; */
     string sub;
-    int j, k;
+    int j, k,e;
     j=k=0;
     // cin>>name;
     getline(cin,input);
@@ -26,45 +56,25 @@ int main() {
     reverse(input.begin(), input.end());
     cout<<input<<endl;
     istringstream iss(input);
-    do
-    {  iss >> sub;
+    cout<<"Length of operand string"<<operands.length()<<endl;
+    iss >> sub;
+    while(iss)
+    {  
+        cout<<sub.size();
       if((sub)=="+" || (sub)=="-" || (sub)=="*")
        {
-         operators= operators + sub;
-         cout<<"value of operators"<<" "<<operators<<endl;
-         j++;
+         operators.push_back(sub);
        }
        else
        {
-        operands=operands +sub;
-        cout<<"value of operands"<<" "<<operands<<endl;
+        operands.push_back(sub);
+        cout<<"value of operands";
+        printVector(operands);
        }
-    }while(iss);
-/*     vector<string> input;
-    vector<string> operand;
-    vector<string> operators;
-    for(int i=0;i=name.size();i++)
-    {
-      input.push_back(name[i]);
+       if(operators.size()>0 && operands.size()>1)
+       {
+           e=evaluate(operators,operands); 
+       }
+       iss >> sub;
     }
-    /* for (int i = 0; i < 10; i++) 
-    {  input.push_back("i");
-       input.push_back("+");
-       input.push_back("-");
-    } 
-       */
-/*     for (auto i = input.rbegin(); i != input.rend(); i++)
-    {      cout<<*i<<endl;
-           if((*i)=="+" || (*i)=="-" || (*i)=="*")
-           {
-              operators.push_back(*i);
-           }      
-           operand.push_back(*i);
-    }
-     cout<<"Print the input= "; 
-     printVector(input);
-     cout<<"Print the operand= "; 
-     printVector(operand);
-     cout<<"Print the operators= "; 
-     printVector(operators);  */
 }    
