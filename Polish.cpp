@@ -5,6 +5,10 @@
 
 // For debuging
 using namespace std;
+
+const int cinTerminator = '\n';
+
+
 void printVector(vector<string> vec) 
 { 
   
@@ -16,13 +20,16 @@ void printVector(vector<string> vec)
 }
 //evluate
 
-int evaluate(string &operators, string &operands)
+int evaluate(vector<string> &operators, vector<string> &operands)
 {   char result=0;
-  cout<<endl;
-  cout<<operands<<operands.length()<<endl;
-  cout<<"value of number 1 in evaluation () ="<<operands[(operands.length()-2)]<<endl;
-  cout<<"value of number 2 in evaluation ()="<<operands[(operands.length()-4)]<<endl;
-  if(isdigit(operands[(operands.length()-2)]) && isdigit(operands[(operands.length()-4)]))
+  
+  //if(isdigit(operands.at((operands.size()-1))) && isdigit(operands.at((operands.size()-2))))
+  /* if(isdigit(operands(0)))
+  {
+    cout<<" ihfifhfhf hfofh";
+  } */
+//    int *pos= operands.back();
+/*   if(isdigit(operands) && isdigit(operands))
   {
     cout<<"value of number 1="<<operands[(operands.length()-2)]<<endl;
     cout<<"value of number 2="<<operands[(operands.length()-4)]<<endl;
@@ -36,7 +43,7 @@ int evaluate(string &operators, string &operands)
     cout<<"print the operands after erase="<<operators;
   }
   operands=operands + operators;
-  cout<<"value of results="<<result<<endl;
+  cout<<"value of results="<<result<<endl; */
 
 return(0);
 }
@@ -56,11 +63,10 @@ int main() {
     reverse(input.begin(), input.end());
     cout<<input<<endl;
     istringstream iss(input);
-    cout<<"Length of operand string"<<operands.length()<<endl;
     iss >> sub;
     while(iss)
     {  
-        cout<<sub.size();
+        cout<<sub<<endl;
       if((sub)=="+" || (sub)=="-" || (sub)=="*")
        {
          operators.push_back(sub);
@@ -68,9 +74,11 @@ int main() {
        else
        {
         operands.push_back(sub);
-        cout<<"value of operands";
-        printVector(operands);
        }
+       cout<<"value of operands";
+        printVector(operands);
+        cout<<"value of operators";
+        printVector(operators);
        if(operators.size()>0 && operands.size()>1)
        {
            e=evaluate(operators,operands); 
