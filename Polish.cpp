@@ -49,25 +49,32 @@ return(0);
 }
 
 int main() { 
-    string input;
+    string ch;
+    vector<string> input;
     vector<string> operands;
     vector<string> operators;
 /*     string operands;
     string operators; */
     string sub;
-    int j, k,e;
+    int j,k,e;
     j=k=0;
-    // cin>>name;
-    getline(cin,input);
-    cout<<input<<endl;
-    reverse(input.begin(), input.end());
-    cout<<input<<endl;
-    istringstream iss(input);
+    getline(cin,ch);
+    istringstream iss(ch);
     iss >> sub;
     while(iss)
+    {
+      input.push_back(sub);
+      iss >> sub;
+    }
+    cout<<"Input ";
+    printVector(input);
+   // reverse(input.begin(), input.end());
+
+    /* int size=input.size()-1;
+    for (int i=size;i>0;i--)
     {  
-        cout<<sub<<endl;
-      if((sub)=="+" || (sub)=="-" || (sub)=="*")
+        //cout<<sub<<endl;
+      if((input[])=="+" || (sub)=="-" || (sub)=="*")
        {
          operators.push_back(sub);
        }
@@ -84,5 +91,5 @@ int main() {
            e=evaluate(operators,operands); 
        }
        iss >> sub;
-    }
+    } */
 }    
