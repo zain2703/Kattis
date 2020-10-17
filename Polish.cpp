@@ -6,9 +6,6 @@
 // For debuging
 using namespace std;
 
-const int cinTerminator = '\n';
-
-
 void printVector(vector<string> vec) 
 { 
   
@@ -32,32 +29,31 @@ bool filter(string word, string word1) {
 } 
 //evluate
 
-int evaluate(vector<string> &operators, vector<string> &operands)
-{   char result=0;
-  
-  //if(isdigit(operands.at((operands.size()-1))) && isdigit(operands.at((operands.size()-2))))
-  /* if(isdigit(operands(0)))
-  {
-    cout<<" ihfifhfhf hfofh";
-  } */
-//    int *pos= operands.back();
-/*   if(isdigit(operands) && isdigit(operands))
-  {
-    cout<<"value of number 1="<<operands[(operands.length()-2)]<<endl;
-    cout<<"value of number 2="<<operands[(operands.length()-4)]<<endl;
-    switch(operators[0])
+string evaluate(string operators, string operand1, string operand2)
+{   
+    int result; int a,b;
+    a=stoi(operand1);
+    b=stoi(operand2);
+    cout<<endl;
+    cout<<"the value in switch="<<operators.back()<<endl;
+    cout<<"the value of operand1="<<operand1[0]<<endl;
+    cout<<"the value of operand2="<<operand2[0]<<endl;
+    switch(operators.back())
     {
-      case '*':
-          result=operands[(operands.length()-2)] + operands[(operands.length()-4)];
-          break;
+    case '+':
+      result= a+b;
+      cout<<"the result in + ="<< result<<endl;
+      break;
+    case '-':
+      result=a-b;
+      cout<<"the result in - ="<< result<<endl;
+      break;
+    case '*':
+      result=a*b;
+      cout<<"the result in * ="<< result<<endl;
+      break;
     }
-    //operators.erase('*');
-    cout<<"print the operands after erase="<<operators;
-  }
-  operands=operands + operators;
-  cout<<"value of results="<<result<<endl; */
-
-return(0);
+    return to_string(result);
 }
 
 int main() { 
@@ -67,9 +63,8 @@ int main() {
     vector<string> operators;
 /*     string operands;
     string operators; */
-    string pr="0"; 
-    string sub;
-    bool flag=false;
+    string pr; 
+    string sub,sum;
     int j,k,e;
     j=k=0;
     getline(cin,ch);
@@ -82,7 +77,7 @@ int main() {
     }
     cout<<"Input ";
     printVector(input);
-    for (auto ir=input.rbegin(); ir !=input.rend(); ir++)
+    for (auto ir=input.rbegin(); ir !=input.rend(); ++ir)
     {  
       if((*ir)=="+" || (*ir)=="-" || (*ir)=="*")
        {
@@ -92,18 +87,33 @@ int main() {
        { 
          operands.push_back(*ir);
          flag=filter(*ir,pr);
-         cout<<"the flag"<<flag<<endl;
+//         cout<<"the flag"<<flag<<endl;
        }
-       pr=operands.back();
-       cout<<"value of operands";
+        cout<<"value of operands";
         printVector(operands);
         cout<<"value of operators";
         printVector(operators);
+       // cout<<"size of operators"<<operators.size()<<endl;
        if(operators.size()>0 && operands.size()>1)
-       {
-           e=evaluate(operators,operands); 
-           operands.push_back(operators.front());
-           operators.pop_back();
+       {   
+           //pr=operands.at(operands.size()-2);
+           pr=operands.at(operands.size()-2);
+           cout<<"The operand 1="<<operands.back()<<"The operand 2="<<pr<<endl;
+          
+          if(filter(operands.back(),pr))
+          {
+                sum=evaluate(operators.back(),pr,operands.back());
+                operands.pop_back();
+                operands.pop_back();
+                operands.push_back(sum);
+                operators.pop_back();
+           }
+           else
+           { 
+             operands.push_back(operators.front());
+             operators.pop_back(); 
+           }           
        }
-    } 
-}    
+    } //* - 6 + x -6 - 3 * 0 c
+    printVector(operands);
+}  
