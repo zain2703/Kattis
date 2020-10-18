@@ -63,12 +63,13 @@ string evaluate(string operators, string operand1, string operand2)
 int main() { 
   string ch,sub,pr,pr2,sum; bool loop=true;
   vector<string> input;
+  vector<string> output;
   //vector<int>::iterator op1,op2;
-  char *test;
+ // char *test;
   int op1,op2; 
   int iterator=0;
-  int check=0;
-  char cc[4];
+//  int check=0;
+//  char cc[4];
 /*   cin>>ch;
   while((ch.size()+1)>check){
       input.push_back(ch);
@@ -78,8 +79,8 @@ int main() {
       check++;
    }  */
 //   printVector(input);
-   while(loop)
-    { 
+  while(loop)
+  { 
       iterator++;
       getline(cin,ch);
       istringstream iss(ch);
@@ -88,35 +89,43 @@ int main() {
         input.push_back(sub);
        // break;
       }  
-      cout<<"Input ";
-      printVector(input); int i=1;
-      cout<<" The input for size is ="<<input.size()<<endl;
+//      cout<<"Input ";
+//      printVector(input); int index,index1;
+//      index=0,index1=1;
+//      cout<<" The input for size is ="<<input.size()<<endl;
       for (auto ir=input.rbegin(); ir !=input.rend(); ++ir)
       {  
-        if((*ir)=="+" || (*ir)=="-" || (*ir)=="*")
-        {
-          op1=(input.size()-i)+1;
-          pr=input.at(op1);
-          cout<<"the vlaue of i="<<i<<" operand index="<<op1<<" The vlaue of previous op1="<<pr<<endl;
-          op2=(input.size()-i)+2;
-          pr2=input.at(op2);
-          cout<<"the vlaue of i="<<i<<" operand index="<<op2<<" The vlaue of previous op2="<<pr2<<endl;
+//        cout<<" The output for size is ="<<output.size()<<endl;
+        if((*ir)=="+" || (*ir)=="-" || (*ir)=="*" && (output.size()>1))
+        {  
+          pr=output.at(output.size()-1);
+          pr2=output.at(output.size()-2);
+//          cout<<"inside if operand 1= "<<pr<<" operand 2= "<<pr2<<endl;
           if(filter(pr,pr2))
           {
-            cout<<"sucessful in print operand 1= "<<pr<<" operand 2= "<<pr2<<endl; 
+//            cout<<"sucessful in print operand 1= "<<pr<<" operand 2= "<<pr2<<endl; 
             sum=evaluate(*ir,pr,pr2);
-            input.erase(input.begin()+op1);
-            input.erase(input.begin()+op2);
+            output.pop_back();//index--,index1--;
+            output.pop_back();//index--,index1--;
+//            output.pop_back();//index--;index1--;
+            output.push_back(sum);
 //            cout<<"erase index of first element ="<<input.begin()+op1<<endl;
-//            cout<<"erase index of second element ="<<input.begin()+op1<<endl;
-//            input[i]=sum;
-            printVector(input);
+//            cout<<"erase index of second element ="<<input.begin()+op1<<endl;          
+//            printVector(output);
           }
+          else
+              {
+                output.push_back(*ir);
+              }
         }
-        i++;
+        else
+          {
+            output.push_back(*ir);
+          }
+//          ReverseVector(output);  
       } 
-      cout<<"Outside for loop \n"; //* - 6 + x -6 - 3 * 0 c
-     cout<<"case "<<iterator<<": ";printVector(input);cout<<endl;
-     input.clear();
+//      cout<<"Outside for loop \n"; //* - 6 + x -6 - 3 * 0 c
+      cout<<"case "<<iterator<<": ";ReverseVector(output);cout<<endl;
+      input.clear();output.clear();
   }   
 }  
