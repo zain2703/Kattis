@@ -6,7 +6,7 @@ using namespace std;
 void printVector(vector<string> vec) 
 { 
   
-    cout << "Vector: "; 
+//    cout << "Vector: "; 
     for (auto x : vec) { 
         cout << x << " "; 
     } 
@@ -61,7 +61,8 @@ string evaluate(string operators, string operand1, string operand2)
 }
 
 int main() { 
-  string ch,sub,pr,pr2,sum; bool loop=true;
+
+string ch,sub,pr,pr2,sum; bool loop=true;
   vector<string> input;
   //vector<int>::iterator op1,op2;
   char *test;
@@ -69,14 +70,14 @@ int main() {
   int iterator=0;
 //  int check=0;
 //  char cc[4];
-/*   cin>>ch;
-  while((ch.size()+1)>check){
-      input.push_back(ch);
-      cin>>ch;
-      printVector(input);
-      cout<<"the check="<<check<<" size of check= "<<ch.size()<<endl;
-      check++;
-   }  */
+//   cin>>ch;
+//  while((ch.size()+1)>check){
+//      input.push_back(ch);
+//      cin>>ch;
+//      printVector(input);
+//      cout<<"the check="<<check<<" size of check= "<<ch.size()<<endl;
+//      check++;
+//   }  
 //   printVector(input);
    while(loop)
     { 
@@ -88,8 +89,8 @@ int main() {
         input.push_back(sub);
        // break;
       }  
-      /* cout<<"Input ";
-      printVector(input); */ 
+//      cout<<"Input ";
+//      printVector(input);  
       int i=0;int oper_index=input.size()-1;
      // cout<<" The input for size is ="<<input.size()<<endl;
       for (auto ir=input.rbegin(); ir !=input.rend(); ++ir)
@@ -125,5 +126,5 @@ int main() {
 //      cout<<"Outside for loop \n"; //* - 6 + x -6 - 3 * 0 c
      cout<<"case "<<iterator<<": ";printVector(input);cout<<endl;
      input.clear();
-  }   
+  }    
 } 
