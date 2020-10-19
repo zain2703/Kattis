@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include<vector>
+//#include<vector>
 // For debuging
 using namespace std;
 
@@ -20,14 +20,14 @@ void ReverseVector(vector<string> vec)
     } 
 }
 
-bool filter(string word, string word1) {
-    bool Digit0 = false;
-    bool Digit1 = false;
+int filter(string word, string word1) {
+    int Digit0 = 0;
+    int Digit1 = 0;
     for (int i = 0; i < word.size(); i++) {
-        if (isdigit(word.at(i))) { Digit0 = true; }
+        if (isdigit(word.at(i))) { Digit0 = 1; }
     }
     for (int i = 0; i < word1.size(); i++) {
-        if (isdigit(word1.at(i))) { Digit1 = true; }
+        if (isdigit(word1.at(i))) { Digit1 = 1; }
     }
     return ( Digit0 && Digit1);
 } 
@@ -62,7 +62,7 @@ string evaluate(string operators, string operand1, string operand2)
 
 int main() { 
 
-string ch,sub,pr,pr2,sum; bool loop=true;
+string ch,sub,pr,pr2,sum; int loop=true;
   vector<string> input;
   //vector<int>::iterator op1,op2;
   char *test;
@@ -79,8 +79,15 @@ string ch,sub,pr,pr2,sum; bool loop=true;
 //      check++;
 //   }  
 //   printVector(input);
-   while(loop)
-    { 
+/* getline(cin,ch);
+istringstream iss(ch); */
+/* cin>>ch;
+  while (ch!="/n") {
+    input.push_back(ch);
+    cin>>ch;
+  } */
+while(loop)
+    { loop++;
       iterator++;
       getline(cin,ch);
       istringstream iss(ch);
@@ -124,7 +131,7 @@ string ch,sub,pr,pr2,sum; bool loop=true;
         oper_index--;
       } 
 //      cout<<"Outside for loop \n"; //* - 6 + x -6 - 3 * 0 c
-     cout<<"case "<<iterator<<": ";printVector(input);cout<<endl;
+     cout<<endl<<"case "<<iterator<<": ";printVector(input);cout<<endl;
      input.clear();
-  }    
+  } 
 } 

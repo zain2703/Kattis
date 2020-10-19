@@ -1,5 +1,5 @@
-#import sys
-#from collections import deque 
+import sys
+from collections import deque 
 
 def sum(op,operand1,operand2):  
 #    print(op,operand1,operand2)
@@ -23,7 +23,8 @@ def printvector(arr):
 i=True
 iterator=0
 while(i):
-    arr =str(input())
+    arr = sys.stdin.readline()
+    print(arr)
     arr=arr.split()
     arr.reverse()
     for index,x in enumerate(arr):
@@ -35,9 +36,7 @@ while(i):
                 arr.pop(index-1) 
                 arr.pop(index-2)
     iterator=iterator+1
-    print('\n')
-    print(f'Case {iterator}:')
+#    arr.reverse()
+ #   print('Case {}: {}'.format(iterator, printvector(arr)))
+    print(f'\n Case {iterator}:')
     printvector(arr)
-    print('\n')
- #   arr.clear()
-
