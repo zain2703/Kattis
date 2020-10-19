@@ -27,16 +27,38 @@ while(i):
     print(arr)
     arr=arr.split()
     arr.reverse()
+    output=" "
     for index,x in enumerate(arr):
 #        print(index,x)
+#        output=str(" ") + str(x) + str(output)
+        output=" ".join((x,output))
+        print(output)
         if(x=='*'or x=='+' or x=='-'): 
             if(arr[index-1].isnumeric() and arr[index-2].isnumeric()):
+                print(index,x,arr[index-1],arr[index-2])
+                print(output)
                 new=sum(x,arr[index-1],arr[index-2])
                 arr[index]= new
+                output.replace(str(x),str(new))
+            ##    output=str(output) + str(new) 
                 arr.pop(index-1) 
-                arr.pop(index-2)
+#                output[1:]
+                arr.pop(index-2) 
+#                output[1:]
+            ##    print(output)
+        ##    else:
+         ##       output= str(output) + str(x) 
+           ##     print(output)
+       ## else:
+        #    output=str(output) + str(x)
+      #  print(output)
     iterator=iterator+1
 #    arr.reverse()
  #   print('Case {}: {}'.format(iterator, printvector(arr)))
-    print(f'\n Case {iterator}:')
-    printvector(arr)
+    #print(f' Case {iterator}:')
+    print(arr) 
+    print(output)
+#    str1= " "
+#    listtostr = ' '.join([str(elem) for elem in str1])
+#    print(listToString(arr))
+    arr.clear()

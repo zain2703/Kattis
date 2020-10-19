@@ -86,6 +86,13 @@ istringstream iss(ch); */
     input.push_back(ch);
     cin>>ch;
   } */
+/*   getline(cin,ch);
+  string *p =&ch;
+  for(int i=0; i<ch.size();i++)
+  {
+    cout<<i<<"="<<*p<<endl;
+    p++;
+  } */
 while(loop)
     { loop++;
       iterator++;
