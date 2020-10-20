@@ -1,6 +1,10 @@
 import sys
 from collections import deque 
 
+
+
+
+
 def sum(op,operand1,operand2):  
 #    print(op,operand1,operand2)
     if(op=='+'):
@@ -21,44 +25,47 @@ def printvector(arr):
 
 #for a,arr in enumerate(sys.stdin):
 i=True
-iterator=0
+case=1
 while(i):
     arr = sys.stdin.readline()
-    print(arr)
+#    print(arr)
     arr=arr.split()
     arr.reverse()
-    output=" "
+    output= []
+    operator=[]
     for index,x in enumerate(arr):
 #        print(index,x)
 #        output=str(" ") + str(x) + str(output)
-        output=" ".join((x,output))
-        print(output)
-        if(x=='*'or x=='+' or x=='-'): 
-            if(arr[index-1].isnumeric() and arr[index-2].isnumeric()):
-                print(index,x,arr[index-1],arr[index-2])
-                print(output)
-                new=sum(x,arr[index-1],arr[index-2])
-                arr[index]= new
-                output.replace(str(x),str(new))
-            ##    output=str(output) + str(new) 
-                arr.pop(index-1) 
+#        output=" ".join((x,output))
+        if(x=='*'or x=='+' or x=='-'):
+            operator.append(x)
+        else:
+            output.append(x)
+        if len(operator)>0 and len(output) >1: 
+            operand1=output.pop()
+            operand2=output.pop()
+#            operand1.isdecimal()
+            #print(operand1,operand2)
+            if(operand1.isdecimal() and operand2.isdecimal()):
+#                print(index,x,arr[index-1],arr[index-2])
+#                print(output)
+                 new=str(sum(operator.pop(),operand1,operand2))
+                 output.append(new)
+#                arr[index]= new
+#                arr.pop(index-1) 
 #                output[1:]
-                arr.pop(index-2) 
+#                arr.pop(index-2) 
 #                output[1:]
             ##    print(output)
-        ##    else:
-         ##       output= str(output) + str(x) 
-           ##     print(output)
-       ## else:
-        #    output=str(output) + str(x)
-      #  print(output)
-    iterator=iterator+1
-#    arr.reverse()
- #   print('Case {}: {}'.format(iterator, printvector(arr)))
-    #print(f' Case {iterator}:')
-    print(arr) 
-    print(output)
-#    str1= " "
-#    listtostr = ' '.join([str(elem) for elem in str1])
-#    print(listToString(arr))
+            else:
+                new1 = operator.pop()+" "+operand1+ " "+operand2
+                output.append(new1)
+   #     print(output)
+   # print(output[0]) 
+    
+ #   print('\nCase {}:'.format(case))
+   # print(*output, sep='')
+    m=output.pop()
+    print('\n Case {}: {}'.format(case,m))
+    case=case+1
     arr.clear()
