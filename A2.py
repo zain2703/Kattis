@@ -1,31 +1,34 @@
 import sys
 from collections import deque 
 
-
-
-
-
-def sum(op,operand1,operand2):  
+#def sum(op,operand1,operand2):  
 #    print(op,operand1,operand2)
-    if(op=='+'):
-        s=int(operand1)+int(operand2)
-        return (s)
-    elif(op=='-'):
-        s=int(operand1)-int(operand2)
+#    if(op=='+'):
+#        s=int(operand1)+int(operand2)
+#        return (s)
+#    elif(op=='-'):
+#        s=int(operand1)-int(operand2)
 #        print(s)
-        return (s)
-    elif(op=='*'):
-        s=int(operand1)*int(operand2)
-        return (s)
+#        return (s)
+#    elif(op=='*'):
+#        s=int(operand1)*int(operand2)
+#        return (s)
 
-def printvector(arr):
-        while(len(arr)>0):
-          print(arr.pop(),end= " ")
+#def printvector(arr):
+#        while(len(arr)>0):
+#          print(arr.pop(),end= " ")
 #           print(arr.pop())
+
+fun = {
+     '+': lambda x, y: x+y,
+     '-': lambda x, y: x-y,
+     '*': lambda x, y: x*y,
+}
 
 #for a,arr in enumerate(sys.stdin):
 i=True
 case=1
+#print(fun['+'](2,3))
 while(i):
     arr = sys.stdin.readline()
 #    print(arr)
@@ -49,7 +52,7 @@ while(i):
             if(operand1.isdecimal() and operand2.isdecimal()):
 #                print(index,x,arr[index-1],arr[index-2])
 #                print(output)
-                 new=str(sum(operator.pop(),operand1,operand2))
+                 new=str(fun[str(operator.pop())](int(operand1),int(operand2)))
                  output.append(new)
 #                arr[index]= new
 #                arr.pop(index-1) 
@@ -67,6 +70,9 @@ while(i):
    # print(*output, sep='')
 #    if(len(output)==0):
 #        print(input) """
-    print('\nCase {}: {}'.format(case,output.pop()))
+    if not len(output):
+        print('\nCase {}: {}'.format(case,' '))   
+    else:        
+        print('\nCase {}: {}'.format(case,output.pop()))
     case=case+1
     arr.clear()
