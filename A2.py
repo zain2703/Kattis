@@ -65,7 +65,8 @@ while(i):
     
  #   print('\nCase {}:'.format(case))
    # print(*output, sep='')
-    m=output.pop()
-    print('\n Case {}: {}'.format(case,m))
+#    if(len(output)==0):
+#        print(input) """
+    print('\nCase {}: {}'.format(case,output.pop()))
     case=case+1
     arr.clear()
