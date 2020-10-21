@@ -12,7 +12,7 @@ https://open.kattis.com/problems/polish
 
 Polish Notation starts computing when we have one operator and two operands. For this solution using recursion to get to last element of expression and then start computing from the end if the operator is followed by two numbers.
 
-I also tried to do this with vectors array in C++ but in katti gives run time error.
+I also tried three different solutions with 3,2,1 vector array in polish.cpp file they are working but the pop() time is very time consuming you just need to merge whole expreseeion after every evaluation in a string.
 
 ### conundrum.c
 https://open.kattis.com/problems/conundrum
