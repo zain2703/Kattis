@@ -13,25 +13,29 @@ void printVector(vector<float> vec)
     cout << endl; 
 }
 
-float compute(vector<float> front,vector<float> rear)
+void compute(vector<float> front,vector<float> rear)
 {  
-    vector<float> dl; float dll=1;
+    vector<float> dl;
+    vector<float> dll; float max; 
      //dl.push_back(dll);
       int i =0;
     for (auto& m : front) {
         for (auto& n : rear)
         { 
-           dll=n/m;
  //          cout<<m<<" "<<n<<" "<<n/m<<endl;
-           cout<<dll<<endl;
-           dl.push_back(dll);   
+           dl.push_back(n/m);   
  //        printVector(dl);
         }
     }
-        printVector(dl);
-        sort(dl.begin(), dl.end());
-        printVector(dl);
-          
+//    printVector(dl);
+    sort(dl.begin(), dl.end());
+//    printVector(dl);
+    for (int i=0; i < dl.size()-1; i++)
+        dll.push_back(dl[i+1]/dl[i]);
+//    printVector(dll);
+    max=*max_element(dll.begin(), dll.end());
+    //cout<<max;
+    printf("%.2f\n", max);
 }
 
 int main() 
@@ -53,16 +57,14 @@ int main()
         cin>>spikes;
         rear.push_back(spikes);
     }    
-    cout <<"The front " ;
-   printVector(front);
-   cout <<"The rear " ;
-   printVector(rear);
+//    cout <<"The front " ;
+//   printVector(front);
+//   cout <<"The rear " ;
+//   printVector(rear);
     compute(front,rear);
     cin>>spikes;
     i=spikes;
+    front.clear();rear.clear();
    }
-   cout <<"The front " ;
-   printVector(front);
-   cout <<"The rear " ;
-   printVector(rear);
+return 0;
 } 
