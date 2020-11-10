@@ -17,7 +17,7 @@ I also tried three different solutions with 3,2,1 vector array in polish.cpp fil
 ### TourDeFrance.cpp
 https://open.kattis.com/problems/tourdefrance
 
-IN this problem we ave to calcuate the maxmum spread between drive ratios. My solution getting input sperately for rear and front spokes diving them to find the n/m angular velociety to the pedal n/m. Then using the anuglar velociety to find the drive ratio between them afte this just rint the maximum.
+In this problem we have to calcuate the maximum spread between drive ratios. My solution was getting input sperately for rear and front spokes dividing them to find the n/m angular velociety to the pedal n/m. Then using the anuglar velociety to find the drive ratio between them after this just printing the maximum number.
 
 
 ### conundrum.c
