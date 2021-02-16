@@ -34,6 +34,6 @@ In this problem having one string which is having all new alphabets stored. Comp
 
 https://open.kattis.com/problems/speedlimit
 
-In this problem a simple while loop inside while loop to run for number of sets. Inside the while getting input of time and miles per hour in compute function and summng it up in the for loop in the miles. Then with the print function printing the miles.
+In this problem a simple while loop run for number of sets. Inside the while getting input of time and miles per hour in compute function and summng it up in the for loop in the miles. Then with the print function printing the miles.
  
 
